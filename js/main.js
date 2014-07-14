@@ -1,5 +1,5 @@
 
-angular.module('app', ['myNavbar'])
+angular.module('app', ['g3org3'])
 
 .controller('appCtrl', function($scope){
 	$scope.c = function(red) {

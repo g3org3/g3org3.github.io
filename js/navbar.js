@@ -1,4 +1,4 @@
-angular.module('myNavbar', [])
+angular.module('g3org3', [])
 .directive('navbar', function(){
 	return {
 		replace: true,
