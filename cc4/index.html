@@ -43,8 +43,9 @@ Makefile
 	<h2>Makefile</h2>
 	<div class="box">
 <pre class="dev">
-<r>make:</r> teacher.class student.class lab01.class
-<r>build:</r> teacher.class student.class lab01.class
+<r>make:</r> lab01
+
+<r>lab01:</r> teacher.class student.class lab01.class
 
 <r>teacher.class:</r> laboratorios/lab01/teacher/Teacher.java
     clear
@@ -54,10 +55,11 @@ Makefile
 <r>lab01.class:</r> Lab01.java
     javac Lab01.java
 
-<r>clean:</r>
+<r>clean-lab01:</r>
     rm laboratorios/lab01/teacher/Teacher.class
     rm laboratorios/lab01/student/Student.class
     rm Lab01.class
+
 </pre>
 	</div>
 
@@ -104,6 +106,11 @@ $ export CLASSPATH=".:<var>example_path</var>:$CLASSPATH"
 
 <c>Example</c>
 $ export CLASSPATH=".:<var>compiler/lib/antlr-3.4-complete.jar</var>:$CLASSPATH"
+
+//How to use ANTLR ?
+
+$ java org.antlr.v4.Tool <var>miClase.g</var>
+
 </pre>
     </div>
 
