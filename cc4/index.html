@@ -9,6 +9,8 @@
 .navbar-white {
     -webkit-box-shadow: 0px 0px 10px 0px #aaa;
     box-shadow: 0px 0px 10px 0px #aaa;
+    height: 50px;
+    z-index: 3;
 }
 .box {
     -webkit-box-shadow: 0px 0px 10px 0px #aaa;
@@ -17,14 +19,112 @@
 .footer {
     color: #aaa;
 }
+h2 {
+    padding-top: 55px;
+}
+.side-menu {
+    position: fixed;
+    left: -80%;
+    top: 0px;
+    -webkit-box-shadow: 0px 0px 10px 0px #777;
+    box-shadow: 0px 0px 10px 0px #777;
+    width: 70%;
+    height: 100%;
+    background: #fff;
+    z-index: 9;
+    text-transform: capitalize;
+    transition: all 1s;
+}
+body>.active {
+    left: 0%;
+    transition: all 1s;
+}
+.side-menu ul {
+    -webkit-padding-start: 0px;
+    list-style: none;
+}
+.side-menu ul li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #aaa;
+}
+.side-menu ul li:hover {
+    background: #f8f8f8;
+}
+.cont {
+    margin-left: 0%;
+}
+.menu-btn {
+    display: none;
+}
+.moved-off {
+    transition: left 0.7s;
+    position: relative;
+    left: 0%;
+    overflow: hidden;
+}
+.moved {
+    left: 70%;
+}
+.clickable {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+@media(max-width: 768px){
+    .menu-btn {
+        display: inline-block;
+    }
+    .container {
+        position: relative;
+        width: 100% !important;
+        margin: 0px auto !important;
+    }
+    .box {
+        width: 100%;
+    }
+    .slidemenu {
+        position:  fixed;
+        top: 10px;
+        z-index: 6;
+        right: 0px;
+    }
+    .btn-menu:hover {
+        color: #0011aa;
+    }
+}
 </style>
 </head>
+<body style="margin:0px 0px 0px 60px" ng-controller='MenuCtrl as menu'>
 
-<body style="margin:60px 0px">
-<navbar type='fixed' title='CCIV Lab01' theme='white'></navbar>
+<div class="clickable" ng-show='menu.showMenu' ng-swipe-left='menu.hide();'ng-click='menu.hide();'></div>
+<div class="side-menu" ng-class='{active:menu.showMenu}'>
+    <ul>
+        <li ng-repeat='item in menu.items'><a ng-href="#{{item.name}}" ng-click='menu.hide()'>{{item.name}}</a></li>
+        <li><a href="" ng-click='menu.hide()'>Hide</a></li>
+    </ul>
+</div>
+
+<div class="slidemenu">
+    <a class="btn btn-menu" ng-click='menu.show();'>Menu</a>
+</div>
+
+
+
+
+<div class="moved-off" ng-class='{moved:menu.showMenu}'>
+
+
+<navbar type='fixed' title='CCIV Lab01' theme='white' href='#'>
+    <menu>
+        <li ng-repeat='item in menu.items'><a ng-href="#{{item.name}}">{{item.name}}</a></li>
+    </menu>
+</navbar>
 
 <container>
-	<h1>Lab01 <small>(directory)</small></h1>
+	<h2 id="lab01">Lab01 <small>(directory)</small></h2>
 	<div class="box">
 <pre class="dev">
 laboratorios/
@@ -41,7 +141,7 @@ Makefile
 
 	<hr>
 
-	<h2>Makefile</h2>
+	<h2 id="makefile">Makefile</h2>
 	<div class="box">
 <pre class="dev">
 <r>make:</r> lab01
@@ -65,7 +165,7 @@ Makefile
 	</div>
 
     <hr>
-    <h2>Compile</h2>
+    <h2 id="compile">Compile</h2>
     <div class="box">
 <pre class="dev">
 <c>Run in the terminal</c>
@@ -87,7 +187,7 @@ rm Lab01.class
     </div>
 
     <hr>
-    <h2>Run</h2>
+    <h2 id="run">Run</h2>
     <div class="box">
 <pre class="dev">
 <c>Run in the terminal</c>
@@ -96,7 +196,7 @@ $ java Lab01 2 <c>num of how many students</c>
     </div>
 
     <hr>
-    <h2>Antlr</h2>
+    <h2 id="antlr">Antlr</h2>
     <div class="box">
 <pre class="dev">
 <c>Run in the terminal</c>
@@ -113,8 +213,10 @@ $ export CLASSPATH=".:<var>compiler/lib/antlr-3.4-complete.jar</var>:$CLASSPATH"
 $ java org.antlr.v4.Tool <var>miClase.g</var>
 <c>Generates the .java file</c>
 <c>compile the generated file</c>
-
+$ javac miClase.java
 </pre>
+
+<a href="http://www.antlr.org/">ANTLR</a>
     </div>
 
 
@@ -126,11 +228,30 @@ $ java org.antlr.v4.Tool <var>miClase.g</var>
     </container>
 </div>
 
-
+</div>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/touch.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/navbar.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript">
+angular.module('app', ['g3org3', 'ngTouch'])
+.controller('MenuCtrl', function(){
+    this.items = [
+        {name: 'lab01'},
+        {name: 'makefile'},
+        {name: 'compile'},
+        {name: 'run'},
+        {name: 'antlr'}
+    ];
+    this.showMeny = false;
+    this.show = function(){
+        this.showMenu = true;
+    };
+    this.hide = function(){
+        this.showMenu = false;
+    };
+})
+</script>
 </body>
 </html>

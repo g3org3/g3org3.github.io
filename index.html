@@ -9,6 +9,7 @@
 
 <body style="margin:60px 0px 300px 0px;">
 <navbar type='fixed' ng-theme='theme' title='B-Theme'>
+    <menu>
     <li class="dropdown active">
         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">DD <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
@@ -33,6 +34,7 @@
             <li  ng-repeat='color in colors'><a href="" ng-click='c(color.g)'>{{color.text}}-theme</a></li>
         </ul>
     </li>
+    </menu>
 </navbar>
 
 <container>
