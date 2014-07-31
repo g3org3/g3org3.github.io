@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio #1</title>
+        
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+        
+        <!-- Custom CSS -->
+        <style type="text/css">
+        .navbar img {
+          position: relative;
+          top: 5px;
+        }
+        .footer {
+          color: #ccc;
+        }
+        .footer a {
+          color: #999;
+          cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Wrap all page content here -->
+        <div id="wrap">
+            
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="../">
+                            <img class="brand-logo pull-left" src="https://diegofigueroa.github.io/ug-cc4-labs/images/ug_128.png" width="40px">
+                        </a>
+                        <a class="navbar-brand" href="../">Laboratorios</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../">Windows</a></li>
+                            <li class=""><a href="../">Mac</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+            
+            <!-- Begin page content -->
+            <div class="container">
+              <div class="page-header">
+  <h1>Laboratorio #1 <small><strong>Herencia y paquetes en Java</strong></small></h1>
+</div>
+<!--<p class="meta">15 Jul 2014</p>-->
+
+<div class="post">
+<h2 id="objetivos">Objetivos</h2>
+<p>Para esta práctica se espera que recuerden un poco de Java y desempolven ese conocimiento de CC2, porque nos va a ser muy útil para el resto del curso.<br />
+Los objetivos para este laboratorio son:</p>
+
+<ul>
+  <li>Que recuerden conceptos clave de herencia.</li>
+  <li>Que recuerden conceptos clave de la forma de manejar paquetes.</li>
+  <li>Que practiquen un poco y se diviertan con Java ;)</li>
+</ul>
+
+<hr />
+
+<h2 id="descripcin">Descripción</h2>
+
+<p>Deberá implementar una estructura básica de directorios y clases, a partir de este laboratorio vamos a preparar nuestro ambiente de trabajo para el resto del curso por lo que es importante seguir las instrucciones descritas a continuación.</p>
+
+<ol>
+  <li>
+    <p><strong>Preparando el ambiente de trabajo:</strong> <br />
+ Asumimos que es un estudiante responsable y tiene instalado Java. Como ya les he mencionado, les recomiendo que utilicen el sistema operativo Linux, sin embargo la explicación la realizaremos tanto para Linux como para Windows.</p>
+  </li>
+  <li>
+    <p><strong>GNU Make:</strong> <br />
+ Para compilar nuestros archivos de una forma mas ordenada y eficiente vamos a utilizar una herrmanienta llamada GNU Make. Linux la trae instalada por defecto (y si no fuera asi, es parte del paquete <code>build-essential</code>) pero para Windows no hay una implementación nativa (Windows usa archivos .bat :S:S) entonces es necesario que lo descarguen como una aplicación extra y la versión que utilizaremos será la de <code>MingGW</code> que puede descargarse <a href="http://sourceforge.net/projects/mingw/">aquí</a>.</p>
+
+    <p>Luego de descargar el archivo, debemos extraer el archivo ejecutable y renombrarlo a <code>make.exe</code> y agregar al path el lugar donde lo colocamos. Es decir, que si el archivo <code>make.exe</code> esta en <code>c:\compiladores</code>, voy a modificar la variable de entorno <code>PATH</code> y a agregar el directorio <code>c:\compiladores</code>. Para este laboratorio nosotros les vamos a dar el <code>Makefile</code> pero en adelante ustedes deben elaborarlo, más abajo encontrará el <code>Makefile</code> que le servirá de ayuda.</p>
+  </li>
+  <li>
+    <p><strong>Estructura de directorios:</strong> <br />
+ Es necesario tambien definir una estructura de directorios, utilizaremos un folder llamado <code>cc4</code> para el resto del semestre, cuando trabajemos el <code>proyecto 0</code> se le explicará con más detalle, por el momento es importante que su folder este agregado a la variable llamada <code>CLASSPATH</code> si la variable de entorno no existe debe crearla y agregar tanto el folder <code>cc4</code> como un <code>.</code> que referencia al directorio actual. Suponiendo que el directorio <code>cc4</code> está en su disco <code>C</code>, la variable <code>CLASSPATH</code> deberia quedar con el valor de <code>C:\cc4;.</code></p>
+
+    <p>Recuerde que para agregar varios directorios a una variable el delimitador es un punto y coma <code>;</code> para quienes trabajan en Linux el delimitador son los dos puntos <code>:</code> y para agregar la variable deben modificar el archivo <code>.bashrc</code> que se encuentra en su <code>home</code> y agregar <code>export CLASSPATH=~/cc4:.</code> de nuevo, asumiendo que <code>cc4</code> esta en su <code>home</code>.</p>
+
+    <p>Para revisar que esto ha sido realizado correctamente, en una interfaz de línea de comandos (cmd o bash) debe escribir:</p>
+
+    <ul>
+      <li>
+        <p>Linux: <code>echo $CLASSPATH</code>.</p>
+      </li>
+      <li>
+        <p>Windows: <code>echo %CLASSPATH%</code>.</p>
+      </li>
+    </ul>
+
+    <p><strong>Es importante que coloque el nombre de la variable de entorno en mayusculas.</strong></p>
+
+    <p>Para este laboratorio, la estructura de directorios será la siguiente:    </p>
+
+    <pre><code> /cc4
+     /laboratorios
+         /lab01
+             Makefile
+             Lab01.java
+             Human.java
+             /teacher
+                 Teacher.java
+             /student
+                 Student.java
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Estructura de clases:</strong> <br />
+ Para este laboratorio tendremos cuatro clases:</p>
+  </li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/*Human.java*/</span>
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Human</span><span class="o">{</span>
+	<span class="c1">// add a public field, type String named &#39;name&#39;</span>
+	<span class="c1">// implement me</span>
+	<span class="kd">public</span> <span class="kd">abstract</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/* Student.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span><span class="o">{</span>
+	<span class="c1">// implement me</span>
+	<span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+	<span class="o">}</span>
+    
+	<span class="c1">// implement me</span>
+	<span class="c1">// prints the student&#39;s name plus the text &quot; is learning&quot;.</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">learn</span><span class="o">(){</span>
+	<span class="o">}</span>
+	
+	<span class="c1">// implement me</span>
+	<span class="c1">// returns the student&#39;s name</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+	    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/* Teacher.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Teacher</span><span class="o">{</span>
+	<span class="c1">// implement me</span>
+	<span class="kd">public</span> <span class="nf">Teacher</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span>
+	<span class="o">}</span>
+	
+	<span class="c1">// implement me</span>
+	<span class="c1">// adds a student to the theacher (maybe using a list?)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">addStudent</span><span class="o">(</span><span class="n">Student</span> <span class="n">s</span><span class="o">){</span>
+	<span class="o">}</span>
+	
+	<span class="c1">// implement me</span>
+	<span class="c1">// prints the teacher&#39;s name plus the string &quot; is teaching &quot;.</span>
+	<span class="c1">// it should also make a call to the learn() method for all theacher&#39;s students.</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">teach</span><span class="o">(){</span>
+	<span class="o">}</span>
+	
+	<span class="c1">// implement me</span>
+	<span class="c1">// returns the teacher&#39;s name</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/* lab01.java */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lab01</span><span class="o">{</span>
+	
+	<span class="c1">// implement me</span>
+	<span class="c1">// read a integer value from the command line, this number represents the amount of students for your classroom. Remember to pass the proper validations to the input.</span>
+	<span class="c1">// instantiate one Student object for every student on your classroom.</span>
+	<span class="c1">// instantiate one Teacher object for your classroom.</span>
+	<span class="c1">// add your students to the teacher&#39;s list, then make a call to the teacher&#39;s teach() method.</span>
+	<span class="kd">public</span> <span class="kd">class</span> <span class="nc">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+	
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p><strong>Instrucciones adicionales:</strong>   </p>
+
+<p>Todas las clases, a excepcion de <code>Lab01.java</code> deben pertenecer al paquete <code>laboratorios.lab01</code> y dada la estructura de directorios, cada clase pertence a un paquete, es decir <code>Teacher.java</code> pertenecerá al paquete <code>laboratorios.lab01.teacher</code> y <code>Student.java</code> al paquete <code>laboratorios.lab01.student</code>.</p>
+
+<p><strong>Ejemplo de ejecución:</strong>   </p>
+
+<p>Luego de compilar su trabajo, se ejecuta escribiendo:</p>
+
+<div class="highlight"><pre><code class="sh">  java Lab01 3
+</code></pre></div>
+
+<p>y el resultado debería ser:</p>
+
+<div class="highlight"><pre><code class="sh">  Teacher is teaching
+  Student <span class="c">#1 learning</span>
+  Student <span class="c">#2 learning</span>
+  Student <span class="c">#3 learning</span>
+</code></pre></div>
+
+<p><strong>Ejemplo de Makefile:</strong>   </p>
+
+<p>Para este laboratorio, el Makefile a utilizar es el siguiente:</p>
+
+<div class="highlight"><pre><code class="makefile"><span class="nf">make</span><span class="o">:</span> <span class="m">Human.class student</span>\S<span class="m">tudent.class teacher</span>\T<span class="m">eacher.class Lab01.class</span>
+	
+<span class="nf">Lab01.class</span><span class="o">:</span> <span class="m">Lab01.java</span>
+	javac Lab01.java
+	
+<span class="nf">teacher\Teacher.class</span><span class="o">:</span> <span class="m">teacher</span>\T<span class="m">eacher.java</span>
+	javac teacher<span class="se">\T</span>eacher.java
+
+<span class="nf">student\Student.class</span><span class="o">:</span> <span class="m">student</span>\S<span class="m">tudent.java</span>
+	javac student<span class="se">\S</span>tudent.java
+	
+<span class="nf">Human.class</span><span class="o">:</span> <span class="m">Human.java</span>
+	javac Human.java
+
+<span class="nf">clean</span><span class="o">:</span>
+	del Lab01.class
+	del teacher<span class="se">\T</span>eacher.class
+	del student<span class="se">\S</span>tudent.class
+	del Human.class
+</code></pre></div>
+
+<p>Siéntase en la libertad de modificarlo, pero no debería ser necesario. <br />
+Para compilar su trabajo debe escribir en la línea de comandos:</p>
+
+<div class="highlight"><pre><code class="sh">make
+</code></pre></div>
+
+<p>y para borrar los archivos <code>.class</code> puede hacerlo con el comando:</p>
+
+<div class="highlight"><pre><code class="sh">make clean
+</code></pre></div>
+
+<hr />
+
+<h2 id="entrega">Entrega</h2>
+
+<p>La entrega se realizará a través del <code>GES</code> antes de las <strong>23:55:00</strong> del día <strong>Lunes 21 de Julio de 2014</strong>, debe enviar un archivo llamado <code>carnet.zip</code> conteniendo el directorio <code>lab01</code> que debe llevar <strong>todas</strong> sus clases.</p>
+
+<hr />
+
+<h2 id="evaluacin">Evaluación</h2>
+<p>Los principales aspectos a evaluar en este laboratorio son:</p>
+
+<ul>
+  <li>Manejo de herencia.</li>
+  <li>Manejo de paquetes.</li>
+  <li>Seguir instruccones.</li>
+</ul>
+
+<p>–</p>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer navbar navbar-static-bottom">
+            <div class="container">
+                <p class="navbar-text">
+                    Universidad Galileo &bull; <a mailto="jagonzalez@galileo.edu">jagonzalez@galileo.edu</a>
+                </p>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+</html>
