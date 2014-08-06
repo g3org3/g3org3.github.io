@@ -86,8 +86,13 @@ angular.module('g3org3', [])
 		template: "<span class='r' ng-transclude></span>"
 	};
 })
-
-
+.directive('metaMobileApp', function(){
+	return {
+		replace: true,
+		restrict: 'E',
+		template: "<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no, minimal-ui'>"
+	};
+})
 
 
 
