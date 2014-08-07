@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='app' ng-controller='Ctrl'>
+<html ng-app='app' ng-controller='Ctrl as main'>
 <head>
     <title>Info4</title>
     <meta-mobile-app></meta-mobile-app>
@@ -27,7 +27,7 @@
     <h1>Hojas</h1>
     <div class="box">
         <ol>
-            <li ng-repeat='file in files'><a target="_blank" ng-href="{{file.href}}">{{file.title}}</a></li>
+            <li ng-repeat='file in main.files'><a target="_blank" ng-href="{{file.href}}">{{file.title}}.</a></li>
         </ol>
     </div>
 </container>
@@ -43,11 +43,12 @@
 <script type="text/javascript" src="../js/navbar.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript">
-function Ctrl($scope){
-    $scope.files = [
-        {href: 'ht1.pdf', title: 'Fuentes discretas de informacion nula.'},
-        {href: 'ht2.pdf', title: 'Propiedades de entropia.'},
-        {href: 'ht3.pdf', title: 'Extensiones de una fuente de informacion.'}
+function Ctrl(){
+    this.files = [
+        {href: 'ht1.pdf', title: 'Fuentes discretas de informacion nula'},
+        {href: 'ht2.pdf', title: 'Propiedades de entropia'},
+        {href: 'ht3.pdf', title: 'Extensiones de una fuente de informacion'},
+        {href: 'ht4.pdf', title: 'Fuentes Discretas de informacion de Markov'}
     ];
 }
 </script>
