@@ -14,6 +14,17 @@ angular.module('g3org3', [])
 		template: "<div class='navbar navbar-{{type}} navbar-{{ngTheme}} navbar-{{static}}-top' role='banner'><div class='container'><div class='navbar-header'><button class='navbar-toggle' type='button' data-toggle='collapse' data-target='navbar-collapse'><span class='sr-only'>Toggle navigation</span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span></button><a class='navbar-brand' href='{{href}}'>{{titulo}}</a></div><div ng-transclude></div></div></div>"
 	};
 })
+.directive('debug', function(){
+	return {
+		replace: true,
+		restrict: 'E',
+		transclude: true,
+		scope: {
+			code: '='
+		},
+		template: "<pre>{{code|json}}</pre>"
+	};
+})
 .directive('menu', function(){
 	return {
 		replace: true,

@@ -1,0 +1,13 @@
+<ol class="breadcrumb">
+	<li><a href="#/">Home</a></li>
+	<li class="active">{{C.title}}</li>
+</ol>
+<h1>{{C.title}}</h1>
+<!-- <debug code='C'></debug> -->
+<div class="box">
+    <ol>
+        <li ng-repeat='file in C.files'>
+            <a target="_blank" ng-href="../{{C.prefix}}{{file.src}}">{{file.title}}</a>
+        </li>
+    </ol>
+</div>
