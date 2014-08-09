@@ -59,6 +59,7 @@ var classes = [
 		name: 'mate',
 		title: 'Matematica VI',
 		prefix: 'ug/files/mate_notes',
+		img: '',
 		files: [
 			{src: '1.pdf', title: '2014-07-15-Note-20-29'},
 			{src: '2.pdf', title: '2014-07-16-Note-19-18'},
