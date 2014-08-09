@@ -33,6 +33,7 @@ function ClassCtrl($routeParams, $location){
 		this.prefix = classes[pos].prefix;
 		this.title 	= classes[pos].title;
 		this.files 	= classes[pos].files;
+		this.img 	= classes[pos].img;
 	} else {
 
 		//document.location.href='#/';
@@ -59,6 +60,7 @@ var classes = [
 		name: 'mate',
 		title: 'Matematica VI',
 		prefix: 'ug/files/mate_notes',
+		img: 'images/math.jpg',
 		files: [
 			{src: '1.pdf', title: '2014-07-15-Note-20-29'},
 			{src: '2.pdf', title: '2014-07-16-Note-19-18'},
