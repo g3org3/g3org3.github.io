@@ -99,8 +99,8 @@ var classes = [
 	        {src: '1.pdf', title: 'Fuentes discretas'},
 	        {src: '2.pdf', title: 'Propiedades de entropia'},
 	        {src: '3.pdf', title: 'Extensiones de una fuente'},
-	        {src: '4.pdf', title: 'Fuentes de Markov 1'}
-	        {src: '4.pdf', title: 'Fuentes de Markov 2'}
+	        {src: '4.pdf', title: 'Fuentes de Markov 1'},
+	        {src: '5.pdf', title: 'Fuentes de Markov 2'}
 	    ]
 	},
 	{
