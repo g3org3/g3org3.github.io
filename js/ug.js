@@ -96,10 +96,11 @@ var classes = [
 		title: 'Informatica IV',
 		prefix: 'info4/ht',
 		files: [
-	        {src: '1.pdf', title: 'Fuentes discretas de informacion nula'},
+	        {src: '1.pdf', title: 'Fuentes discretas'},
 	        {src: '2.pdf', title: 'Propiedades de entropia'},
-	        {src: '3.pdf', title: 'Extensiones de una fuente de informacion'},
-	        {src: '4.pdf', title: 'Fuentes Discretas de informacion de Markov'}
+	        {src: '3.pdf', title: 'Extensiones de una fuente'},
+	        {src: '4.pdf', title: 'Fuentes de Markov 1'}
+	        {src: '4.pdf', title: 'Fuentes de Markov 2'}
 	    ]
 	},
 	{
@@ -109,8 +110,8 @@ var classes = [
 		files: [
 			{src: '13-2007.pdf', title: 'Ordenamiento Externo'},
 	        {src: '14-2007.pdf', title: 'Evaluacion de Operaciones Relacionales'},
-	        {src: '15-2007.pdf', title: 'Introduccion a Optimizacion de Consultas'},
-	        {src: '16-2007.pdf', title: 'Refinamiento de Esquema y Formas Normales'},
+	        {src: '15-2007.pdf', title: 'Introduccion a Opt de Consultas'},
+	        {src: '16-2007.pdf', title: 'Refinamiento de Esquema y FN'},
 	        {src: '17-2007.pdf', title: 'Seguridad'}
 		]
 	},
