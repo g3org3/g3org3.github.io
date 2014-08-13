@@ -42,11 +42,13 @@ function getPos(name){
 	if(name=='mate')
 		return 0;
 	if(name=='micro')
+		return 2;
+	if(name=='microlab')
 		return 1;
 	if(name=='info4')
-		return 2;
-	if(name=='cc6')
 		return 3;
+	if(name=='cc6')
+		return 4;
 	else
 		return -1;
 }
@@ -67,12 +69,26 @@ var classes = [
 	    ]
 	},
 	{
-		name: 'micro',
-		title: 'Micro',
+		name: 'microlab',
+		title: 'Micro Lab',
 		prefix: 'ug/files/micro_lab',
 		files: [
+			{src: '0.pdf', title: 'Analizador Logico'},
 			{src: '1.pdf', title: 'Analizador de Tiempos'},
-			{src: '2.pdf', title: 'Analizador de Estados'}
+			{src: '2.pdf', title: 'Analizador de Estados'},
+		]
+	},
+	{
+		name: 'micro',
+		title: 'Micro',
+		prefix: 'ug/files/micro_p',
+		files: [
+			{src: '1.pdf', title: 'Historia de los Micros'},
+			{src: '2.pdf', title: 'Componentes de un Micro'},
+			{src: '3.pdf', title: 'CISC vs RISK'},
+			{src: '4.pdf', title: 'Aceleracion de una Tarea'},
+			{src: '1.pdf', title: 'Tecnologias de Memoria'},
+			{src: '1.pdf', title: 'Jerarquia de Memoria'}
 		]
 	},
 	{
