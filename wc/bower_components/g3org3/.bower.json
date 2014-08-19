@@ -1,0 +1,33 @@
+{
+  "name": "g3org3",
+  "version": "1.0.4",
+  "homepage": "http://g3org3.github.io/",
+  "authors": [
+    "George"
+  ],
+  "description": "angular plugin & css bootstrap theme",
+  "main": [
+    "dist/js/g3org3.min.js",
+    "dist/css/g3org3.min.css"
+  ],
+  "keywords": [
+    "angular",
+    "pulgin",
+    "bootstrap",
+    "g3org3"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3",
+    "angular": "~1.2.20"
+  },
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.4",
+    "commit": "98d5d5c437593ed0841bc4668477cbb2b51d8945"
+  },
+  "_source": "git://github.com/g3org3/ng-plugin.git",
+  "_target": "~1.0.4",
+  "_originalSource": "g3org3",
+  "_direct": true
+}

@@ -1,0 +1,22 @@
+{
+	"name": "g3org3",
+	"version": "1.0.4",
+	"homepage": "http://g3org3.github.io/",
+	"authors": [
+		"George"
+	],
+	"description": "angular plugin & css bootstrap theme",
+	
+	"main": ["dist/js/g3org3.min.js", "dist/css/g3org3.min.css"],
+
+	"keywords": [
+		"angular",
+		"pulgin",
+		"bootstrap",
+		"g3org3"
+	],
+	"dependencies": {
+		"bootstrap": "~3.0.3",
+		"angular": "~1.2.20"
+	}
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html ng-app='app' ng-init="theme='blue';" ng-controller='appCtrl'>
+<head>
+    <title>Bootstrap-Theme</title>
+    <meta-mobile-app></meta-mobile-app>
+    <!-- dependencies -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" type="text/css" href="dev/css/g3org3.css" />
+</head>
+
+<body style="margin:60px 0px 300px 0px;">
+<navbar type='fixed' ng-theme='theme' title='B-Theme'>
+    <menu>
+    <li class="dropdown active">
+        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">DD <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Normal <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li  ng-repeat='color in colors'><a href="" ng-click='c(color.text)'>{{color.text}}</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gradient <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li  ng-repeat='color in colors'><a href="" ng-click='c(color.g)'>{{color.text}}-theme</a></li>
+        </ul>
+    </li>
+    </menu>
+</navbar>
+
+<container>
+    
+    <h1>Titles</h1>
+    <div class="box">
+        <h2>My Theme</h2>
+        <h3>My Theme</h3>
+        <h4>My Theme</h4>
+        <h5>My Theme</h5>
+        <h6>My Theme</h6>
+    </div>
+    <hr>
+    
+    <h2>Gradient</h2>
+    <div class="box">
+        <div class="form-group">
+            <input class="form-control" />
+        </div>
+        <div class="form-group">
+            <select class="form-control">
+                <option>Brasil</option>
+            </select>
+        </div>
+    </div>
+    
+
+    <hr id="btns">
+
+    <h2>Buttons</h2>
+    <div class="box">
+        <a class="btn btn-danger" href="javascript:void();">danger</a>
+        <a class="btn btn-primary" href="javascript:void();">primary</a>
+        <a class="btn btn-success" href="javascript:void();">success</a>
+        <a class="btn btn-default" href="javascript:void();">default</a>
+        <hr>
+        <a class="btn btn-danger-theme" href="javascript:void();">danger</a>
+        <a class="btn btn-primary-theme" href="javascript:void();">primary</a>
+        <a class="btn btn-success-theme" href="javascript:void();">success</a>
+        <a class="btn btn-default-theme" href="javascript:void();">default</a>
+    </div>
+    <hr>
+
+    <h2>Colors</h2>
+    <div class="box">
+        <div class="circle _lightred margin inline"></div>
+        <div class="circle _red margin inline"></div>
+        <div class="circle _darkred margin inline"></div><br>
+
+        <div class="circle _lightblue margin inline"></div>
+        <div class="circle _blue margin inline"></div>
+        <div class="circle _darkblue margin inline"></div><br>
+        
+        <div class="circle _lightgreen margin inline"></div>
+        <div class="circle _green margin inline"></div>
+        <div class="circle _darkgreen margin inline"></div><br>
+
+        <div class="circle _lightgray margin inline"></div>
+        <div class="circle _gray margin inline"></div>
+        <div class="circle _darkgray margin inline"></div><br>
+        
+        <div class="circle _lightpurple margin inline"></div>
+        <div class="circle _purple margin inline"></div>
+        <div class="circle _darkpurple margin inline"></div>
+    </div>
+
+<hr>
+
+
+<h2>Angular Plugins</h2>
+    <div class="box">
+        <pre class="dev">
+<c>Directives [in-dir]</c>
+<c> 1. [navbar]</c>
+<!--<r>directive</r>(<s>'navbar'</s>, <r>function</r>(){
+    <var>return</var> {
+        replace: <tg>true</tg>,
+        restrict: <s>'E'</s>,
+        transclude: <tg>true</tg>,
+        scope: {
+            titulo: <s>'@title'</s>,
+            type: <s>'@theme'</s>,
+            static:<s> '@type'</s>,
+            ngTheme: <s>'='</s>,
+            href: <s>'@'</s>
+        }
+    };
+})-->
+<c>EXAMPLE</c>
+<c>  All params are optional</c>
+<c>    title: nav title </c>
+<c>    theme: class theme i.e. theme='inverse' => [result] navabar-inverse</c>
+<c>	ng-theme:</c>
+<c>    type: fixed, static</c>
+<r>&lt;navbar <tg>type</tg>=<s>'fixed'</s> <tg>theme</tg>=<s>'{{theme}}'</s> <tg>title</tg>=<s>'Buttons & Colors'</s> &gt;</r><r>&lt;/navbar&gt;</r>
+
+<c> Container => &lt;div class='container'&gt;&lt;/div&gt;</c>
+<r>&lt;container&gt;</r>
+<c>Content! HERE </c>
+<r>&lt;/container&gt;</r>
+        
+<c>Sample Code</c>
+
+<r>&lt;html&gt;</r>
+    <r>&lt;body&gt;</r>
+        <r>&lt;navbar <tg>type</tg>=<s>'fixed'</s> <tg>theme</tg>=<s>'{{theme}}'</s> <tg>title</tg>=<s>'Buttons & Colors'</s> &gt;</r><r>&lt;/navbar&gt;</r>
+        <r>&lt;container&gt;</r>
+        <c>Content! HERE </c>
+        <r>&lt;/container&gt;</r>
+    <r>&lt;/body&gt;</r>
+<r>&lt;html&gt;</r>
+        
+        </pre>
+    </div>
+
+
+
+</container>
+
+<!-- Dependencies -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<!-- endbower -->
+
+<!-- DEV -->
+<script type="text/javascript" src="dev/js/g3org3.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

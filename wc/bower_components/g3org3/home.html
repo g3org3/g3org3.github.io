@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html ng-app='app' ng-controller='mainCtrl as S'>
+<head>
+	<title>Plugins Demo</title>
+	<meta-mobile-app></meta-mobile-app>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- endbower -->
+	<link rel="stylesheet" type="text/css" href="dist/css/g3org3.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/global.min.css" />
+</head>
+<body>
+
+<navbar type='fixed' ng-theme='S.theme' title='g3org3' href='#' >
+	<menu>
+	    <li class="active"><a href="#">Home</a></li>
+	    <li><a href="#contact">Contact</a></li>
+	    <dropdown title='Dropdown' href='#'>
+	        <li><a href="#">Action</a></li>
+	        <li><a href="#">Another action</a></li>
+	        <li><a href="#">Something else here</a></li>
+	        <li class="divider"></li>
+	        <li class="dropdown-header">Nav header</li>
+	        <li><a href="#">Separated link</a></li>
+	        <li><a href="#">One more separated link</a></li>
+	    </dropdown>
+	    <dropdown title='Colors' href='#'>
+	    	<li ng-repeat='color in S.colors'><a ng-click='S.set(color.text)' href="">{{color.text}}</a></li>
+	    </dropdown>
+	    <dropdown title='Colors2' href='#'>
+	    	<li ng-repeat='color in S.colors'><a ng-click='S.set(color.theme)' href="">{{color.text}}-theme</a></li>
+	    </dropdown>
+    </menu>
+</navbar>
+
+<container>
+	<h2>Bower Install</h2>
+	<box>
+		<pre class="dev">$ bower install g3org3</pre>
+	</box>
+
+	<hr>
+
+	<h2>Angular Plugin</h2>
+	<h3>navbar</h3>
+	<box>
+		<pre class="dev"><r>&lt;navbar type=<s>'static'</s> theme=<s>'red'</s> title=<s>'webpage'</s> href=<s>'#'</s>&gt;&lt;/navbar&gt;</r>
+// <var>Params</var>
+// title    = text 
+// type     = [static, fixed] 
+// ng-theme = $scope value for theme
+// href     = link for title
+// theme    = [
+	blue, red, green, purple, gray, white, inverse,
+	blue-theme, red-theme, green-theme, purple-theme, gray-theme, white-theme, inverse-theme,
+    ]
+		</pre>
+	</box>
+
+	<h3>menu</h3>
+	<box>
+		<pre class="dev"><r>&lt;navbar type=<s>'static'</s> theme=<s>'red'</s> title=<s>'webpage'</s> href=<s>'#'</s>&gt;
+    &lt;menu&gt;
+    	&lt;li&gt;&lt;a href=<s>"#link"</s>&gt;option title&lt;/a&gt;&lt;/li&gt;
+    &lt;/menu&gt;
+&lt;/navbar&gt;</r>
+		</pre>
+	</box>
+
+	<h3>dropdown</h3>
+	<box>
+		<pre class="dev"><r>&lt;navbar <tg>type</tg>=<s>'static'</s> <tg>theme</tg>=<s>'red'</s> <tg>title</tg>=<s>'webpage'</s> <tg>href</tg>=<s>'#'</s>&gt;
+    &lt;menu&gt;
+    	&lt;li&gt;&lt;a <tg>href</tg>=<s>"#link"</s>&gt;option title&lt;/a&gt;&lt;/li&gt;
+    	&lt;dropdown <tg>title</tg>='' <tg>href</tg>=''&gt;
+    		&lt;li&gt;&lt;a <tg>href</tg>=<s>"#link"</s>&gt;option title&lt;/a&gt;&lt;/li&gt;
+    	&lt;/dropdown&gt;
+    &lt;/menu&gt;
+&lt;/navbar&gt;</r>
+		</pre>
+	</box>
+
+	<h3>container</h3>
+	<box>
+	<pre class="dev">
+<c>bootstrap's container class</c>
+    &lt;container&gt;&lt;/container&gt;</pre>
+	</box>
+
+	<h3>view</h3>
+	<box>
+	<pre class="dev">
+<c>bootstrap's container class with angular's ng-view directive</c>
+    &lt;view&gt;&lt;/view&gt;</pre>
+	</box>
+
+	<h3>metaMobileApp</h3>
+	<box>
+		<pre class="dev">
+    &lt;meta-mobile-app&gt;&lt;/meta-mobile-app&gt;
+    <c> outputs </c>
+    &lt;meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no, minimal-ui' /&gt;
+		</pre>
+	</box>
+
+	<h3>debug</h3>
+	<pre class="dev">
+    &lt;debug code='var'&gt;&lt;/debug&gt;
+    // Params
+    // code = controller/$scope variable
+
+    i.e.
+    &lt;debug code='S.colors'&gt;&lt;/debug&gt;
+	</pre>
+	<h4>Output Example</h4>
+	<debug code='S.colors'></debug>
+
+	<h3 id="contact">Contact</h3>
+	<box>
+		<h4>github: <a target="_blank" href='https://github.com/g3org3'>g3org3</a></h4>
+	</box>
+</container>
+
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<!-- endbower -->
+
+<script src="dist/js/g3org3.min.js"></script>
+<script type="text/javascript">
+angular.module('app', ['g3org3'])
+.controller('mainCtrl', function(){
+	this.theme = 'red';
+	this.set = function(color) {
+		this.theme = color;
+	};
+
+	this.colors = [
+		{text:'blue', theme: 'blue-theme'},
+		{text:'red', theme: 'red-theme'},
+		{text:'purple', theme: 'purple-theme'},
+		{text:'green', theme: 'green-theme'},
+		{text:'gray', theme: 'gray-theme'},
+		{text:'default', theme: 'default-theme'},
+		{text:'inverse', theme: 'inverse-theme'},
+		{text:'white', theme: 'white-theme'}
+	];
+})
+.directive('box', function(){
+	return {
+		restrict: 'E',
+		replace: true,
+		transclude: true,
+		template: "<div class='g3org3-box' ng-transclude></div>"
+	};
+})
+</script>
+
+</body>
+</html>
