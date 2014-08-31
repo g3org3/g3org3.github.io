@@ -1,5 +1,5 @@
 
-angular.module('app', ['g3org3', 'ngRoute', 'ngAnimate'])
+angular.module('app', ['g3org3', 'ngRoute'])
 .controller('ClassCtrl', ClassCtrl)
 .config(function($routeProvider){
 	$routeProvider
