@@ -1,5 +1,5 @@
 
-angular.module('app', ['g3org3', 'ngRoute'])
+angular.module('app', ['g3org3', 'ngRoute', 'ngAnimate'])
 .controller('ClassCtrl', ClassCtrl)
 .config(function($routeProvider){
 	$routeProvider
@@ -53,9 +53,8 @@ function getPos(name){
 		return -1;
 }
 function Ctrl(){
-    this.files = classes;
+	this.files = classes;
 }
-
 var classes = [
 	{
 		name: 'mate',
@@ -100,7 +99,9 @@ var classes = [
 	        {src: '2.pdf', title: 'Propiedades de entropia'},
 	        {src: '3.pdf', title: 'Extensiones de una fuente'},
 	        {src: '4.pdf', title: 'Fuentes de Markov 1'},
-	        {src: '5.pdf', title: 'Fuentes de Markov 2'}
+	        {src: '5.pdf', title: 'Fuentes de Markov 2'},
+	        {src: '6.pdf', title: 'Variables Discretas'},
+	        {src: '7.pdf', title: 'Codigos'}
 	    ]
 	},
 	{
