@@ -75,6 +75,9 @@ var classes = [
 			{src: '0.pdf', title: 'Analizador Logico'},
 			{src: '1.pdf', title: 'Analizador de Tiempos'},
 			{src: '2.pdf', title: 'Analizador de Estados'},
+			{src: '3.pdf', title: 'Tarjetas LPCXpresso'},
+			{src: '4.pdf', title: 'Puertos Paralelos'},
+			{src: '5.pdf', title: 'PP en Ensamblador'}
 		]
 	},
 	{
@@ -86,8 +89,8 @@ var classes = [
 			{src: '2.pdf', title: 'Componentes de un Micro'},
 			{src: '3.pdf', title: 'CISC vs RISK'},
 			{src: '4.pdf', title: 'Aceleracion de una Tarea'},
-			{src: '1.pdf', title: 'Tecnologias de Memoria'},
-			{src: '1.pdf', title: 'Jerarquia de Memoria'}
+			{src: '5.pdf', title: 'Tecnologias de Memoria'},
+			{src: '6.pdf', title: 'Jerarquia de Memoria'}
 		]
 	},
 	{
