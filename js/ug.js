@@ -101,7 +101,9 @@ var classes = [
 	        {src: '4.pdf', title: 'Fuentes de Markov 1'},
 	        {src: '5.pdf', title: 'Fuentes de Markov 2'},
 	        {src: '6.pdf', title: 'Variables Discretas'},
-	        {src: '7.pdf', title: 'Codigos'}
+	        {src: '7.pdf', title: 'Propiedades de Codigos'},
+	        {src: '8.pdf', title: 'Sintesis de Codigos1'},
+	        {src: '9.pdf', title: 'Sintesis de Codigos2'}
 	    ]
 	},
 	{
