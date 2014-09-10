@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app='app' ng-controller='Ctrl as C'>
+<head>
+    <title>CC6</title>
+    <meta-mobile-app></meta-mobile-app>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+<style type="text/css">
+.navbar-white {
+    -webkit-box-shadow: 0px 0px 10px 0px #aaa;
+    box-shadow: 0px 0px 10px 0px #aaa;
+}
+.box {
+    -webkit-box-shadow: 0px 0px 10px 0px #aaa;
+    box-shadow: 0px 0px 10px 0px #aaa;
+    font-size: 18px;
+}
+.footer {
+    color: #ccc;
+}
+.navbar-text {
+    color: #aaa;
+}
+</style>
+</head>
+
+<body style="margin:60px 0px">
+<navbar type='fixed' title='CC VI' theme='white'></navbar>
+
+<container>
+    <h1>Hojas</h1>
+    <div class="box">
+        <ol>
+            <li ng-repeat='file in C.files'>
+                <a target="_blank" ng-href="Tema{{file.id}}-2007.pdf">{{file.title}}</a> <small><i>Tema: </i>{{file.id}}</small>
+            </li>
+        </ol>
+    </div>
+</container>
+
+<div class="navbar navbar-static-bottom footer">
+    <container>
+        <span class='navbar-text'>Created by jagonzalez@galileo.edu</span>
+        <a href='../info4' class="navbar-text">Info IV</a>
+    </container>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/navbar.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript">
+function Ctrl(){
+    this.files = [
+        {id: '13', title: 'Ordenamiento Externo'},
+        {id: '14', title: 'Evaluacion de Operaciones Relacionales'},
+        {id: '15', title: 'Introduccion a Optimizacion de Consultas'},
+        {id: '16', title: 'Refinamiento de Esquema y Formas Normales'},
+        {id: '17', title: 'Seguridad'},
+    ];
+}
+</script>
+</body>
+</html>
