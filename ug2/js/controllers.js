@@ -50,6 +50,10 @@ angular.module('starter.controllers', [])
 })
 .controller('claseCtrl', function($db, $scope, $stateParams){
   $scope.clase = $db.getClass($stateParams.id);
+  $scope.p1 = $db.getParcial($scope.clase, '1');
+  $scope.p2 = $db.getParcial($scope.clase, '2');
+  $scope.sizep2 = $db.getsize($scope.p2);
+  $scope.sizep1 = $db.getsize($scope.p1);
 })
 .service('$db', function(){
   this.getClass = function(name){
@@ -60,19 +64,42 @@ angular.module('starter.controllers', [])
     });
     return found;
   };
+  this.getParcial = function(clase, idp){
+    items = [];
+    angular.forEach(clase.files, function(item){
+      if(item.p==idp)
+        items.push(item);
+    });
+
+  this.getsize = function(files){
+    size = 0;
+    angular.forEach(files, function(item){
+      if(item.p>0)
+        size++;
+    });
+    return size;
+  };
+
+    return items;
+  }
 })
 
 //
 var classes = [
   {
-    name: 'mate',
-    title: 'Matematica VI',
-    prefix: 'files/mate_notes',
-    img: '',
+    name: 'info4',
+    title: 'Informatica IV',
+    prefix: 'info4/ht',
     files: [
-      {src: '1.pdf', title: '2014-07-15-Note-20-29'},
-      {src: '2.pdf', title: '2014-07-16-Note-19-18'},
-      {src: '3.pdf', title: '2014-07-21-Note-19-43'}
+          {src: '1.pdf', p:'1', title: 'Fuentes discretas'},
+          {src: '2.pdf', p:'1', title: 'Propiedades de entropia'},
+          {src: '3.pdf', p:'1', title: 'Extensiones de una fuente'},
+          {src: '4.pdf', p:'1', title: 'Fuentes de Markov 1'},
+          {src: '5.pdf', p:'1', title: 'Fuentes de Markov 2'},
+          {src: '6.pdf', p:'1', title: 'Variables Discretas'},
+          {src: '7.pdf', p:'2', title: 'Propiedades de Codigos'},
+          {src: '8.pdf', p:'2', title: 'Sintesis de Codigos1'},
+          {src: '9.pdf', p:'2', title: 'Sintesis de Codigos2'}
       ]
   },
   {
@@ -80,12 +107,12 @@ var classes = [
     title: 'Micro Lab',
     prefix: 'files/micro_lab',
     files: [
-      {src: '0.pdf', title: 'Analizador Logico'},
-      {src: '1.pdf', title: 'Analizador de Tiempos'},
-      {src: '2.pdf', title: 'Analizador de Estados'},
-      {src: '3.pdf', title: 'Tarjetas LPCXpresso'},
-      {src: '4.pdf', title: 'Puertos Paralelos'},
-      {src: '5.pdf', title: 'PP en Ensamblador'}
+      {src: '0.pdf', p:'1', title: 'Analizador Logico'},
+      {src: '1.pdf', p:'1', title: 'Analizador de Tiempos'},
+      {src: '2.pdf', p:'1', title: 'Analizador de Estados'},
+      {src: '3.pdf', p:'1', title: 'Tarjetas LPCXpresso'},
+      {src: '4.pdf', p:'2', title: 'Puertos Paralelos'},
+      {src: '5.pdf', p:'2', title: 'PP en Ensamblador'}
     ]
   },
   {
@@ -93,41 +120,36 @@ var classes = [
     title: 'Micro',
     prefix: 'files/micro_p',
     files: [
-      {src: '1.pdf', title: 'Historia de los Micros'},
-      {src: '2.pdf', title: 'Componentes de un Micro'},
-      {src: '3.pdf', title: 'CISC vs RISK'},
-      {src: '4.pdf', title: 'Aceleracion de una Tarea'},
-      {src: '5.pdf', title: 'Tecnologias de Memoria'},
-      {src: '6.pdf', title: 'Jerarquia de Memoria'}
+      {src: '1.pdf', p:'1', title: 'Historia de los Micros'},
+      {src: '2.pdf', p:'1', title: 'Componentes de un Micro'},
+      {src: '3.pdf', p:'1', title: 'CISC vs RISK'},
+      {src: '4.pdf', p:'1', title: 'Aceleracion de una Tarea'},
+      {src: '5.pdf', p:'1', title: 'Tecnologias de Memoria'},
+      {src: '6.pdf', p:'1', title: 'Jerarquia de Memoria'}
     ]
-  },
-  {
-    name: 'info4',
-    title: 'Informatica IV',
-    prefix: 'info4/ht',
-    files: [
-          {src: '1.pdf', title: 'Fuentes discretas'},
-          {src: '2.pdf', title: 'Propiedades de entropia'},
-          {src: '3.pdf', title: 'Extensiones de una fuente'},
-          {src: '4.pdf', title: 'Fuentes de Markov 1'},
-          {src: '5.pdf', title: 'Fuentes de Markov 2'},
-          {src: '6.pdf', title: 'Variables Discretas'},
-          {src: '7.pdf', title: 'Propiedades de Codigos'},
-          {src: '8.pdf', title: 'Sintesis de Codigos1'},
-          {src: '9.pdf', title: 'Sintesis de Codigos2'}
-      ]
   },
   {
     name: 'cc6',
     title: 'Ciencias de la Computacion VI',
     prefix: 'cc6/Tema',
     files: [
-      {src: '13-2007.pdf', title: 'Ordenamiento Externo'},
-          {src: '14-2007.pdf', title: 'Evaluacion de Operaciones Relacionales'},
-          {src: '15-2007.pdf', title: 'Introduccion a Opt de Consultas'},
-          {src: '16-2007.pdf', title: 'Refinamiento de Esquema y FN'},
-          {src: '17-2007.pdf', title: 'Seguridad'}
+      {src: '13-2007.pdf', p:'1', title: 'Ordenamiento Externo'},
+      {src: '14-2007.pdf', p:'1', title: 'Evaluacion de Operaciones Relacionales'},
+      {src: '15-2007.pdf', p:'1', title: 'Introduccion a Opt de Consultas'},
+      {src: '16-2007.pdf', p:'1', title: 'Refinamiento de Esquema y FN'},
+      {src: '17-2007.pdf', p:'1', title: 'Seguridad'}
     ]
+  },
+  {
+    name: 'mate',
+    title: 'Matematica VI',
+    prefix: 'files/mate_notes',
+    img: '',
+    files: [
+      {src: '1.pdf', p:'1', title: '2014-07-15-Note-20-29'},
+      {src: '2.pdf', p:'1', title: '2014-07-16-Note-19-18'},
+      {src: '3.pdf', p:'1', title: '2014-07-21-Note-19-43'}
+      ]
   },
   {
     name: 'redes',

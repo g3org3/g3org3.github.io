@@ -1,12 +1,20 @@
 <ion-view title="{{clase.title}}">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-	  <ion-item ng-repeat="item in clase.files">
-	    <a target="_blank" href="{{clase.prefix}}{{item.src}}">{{item.title}}</a>
-	  </ion-item>
+      
+      <div class="item item-divider" ng-hide="sizep2==0">Segundo Parcial ( {{sizep2}} )</div>
+      <ion-item ng-repeat="item in p2">
+        <a target="_blank" href="{{clase.prefix}}{{item.src}}">{{item.title}}</a>
+      </ion-item>
+  
+      <div class="item item-divider">Primer Parcial ( {{sizep1}} )</div>
+	     <ion-item ng-repeat="item in p1">
+	       <a target="_blank" href="{{clase.prefix}}{{item.src}}">{{item.title}}</a>
+	     </ion-item>
 	</ion-list>
   </ion-content>
 </ion-view>
