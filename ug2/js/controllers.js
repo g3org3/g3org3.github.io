@@ -91,15 +91,17 @@ var classes = [
     title: 'Informatica IV',
     prefix: 'info4/ht',
     files: [
-          {src: '1.pdf', p:'1', title: 'Fuentes discretas'},
-          {src: '2.pdf', p:'1', title: 'Propiedades de entropia'},
-          {src: '3.pdf', p:'1', title: 'Extensiones de una fuente'},
-          {src: '4.pdf', p:'1', title: 'Fuentes de Markov 1'},
-          {src: '5.pdf', p:'1', title: 'Fuentes de Markov 2'},
-          {src: '6.pdf', p:'1', title: 'Variables Discretas'},
-          {src: '7.pdf', p:'2', title: 'Propiedades de Codigos'},
-          {src: '8.pdf', p:'2', title: 'Sintesis de Codigos1'},
-          {src: '9.pdf', p:'2', title: 'Sintesis de Codigos2'}
+          {src:  '1.pdf', p:'1', title: 'Fuentes discretas'},
+          {src:  '2.pdf', p:'1', title: 'Propiedades de entropia'},
+          {src:  '3.pdf', p:'1', title: 'Extensiones de una fuente'},
+          {src:  '4.pdf', p:'1', title: 'Fuentes de Markov 1'},
+          {src:  '5.pdf', p:'1', title: 'Fuentes de Markov 2'},
+          {src:  '6.pdf', p:'1', title: 'Variables Discretas'},
+          {src:  '7.pdf', p:'2', title: 'Propiedades de Codigos'},
+          {src:  '8.pdf', p:'2', title: 'Sintesis de Codigos1'},
+          {src:  '9.pdf', p:'2', title: 'Sintesis de Codigos2'},
+          {src: '10.pdf', p:'2', title: 'Codigos de Redundancia Minima'},
+          {src: '11.pdf', p:'2', title: 'Articulo Huffman'},
       ]
   },
   {
