@@ -114,7 +114,8 @@ var classes = [
       {src: '2.pdf', p:'1', title: 'Analizador de Estados'},
       {src: '3.pdf', p:'1', title: 'Tarjetas LPCXpresso'},
       {src: '4.pdf', p:'2', title: 'Puertos Paralelos'},
-      {src: '5.pdf', p:'2', title: 'PP en Ensamblador'}
+      {src: '5.pdf', p:'2', title: 'PP en Ensamblador'},
+      {src: '6.pdf', p:'2', title: 'ADC'}
     ]
   },
   {
