@@ -101,7 +101,7 @@ var classes = [
           {src:  '8.pdf', p:'2', title: 'Sintesis de Codigos1'},
           {src:  '9.pdf', p:'2', title: 'Sintesis de Codigos2'},
           {src: '10.pdf', p:'2', title: 'Codigos de Redundancia Minima'},
-          {src: '11.pdf', p:'2', title: 'Articulo Huffman'},
+          {src: '11.pdf', p:'2', title: 'Articulo Huffman'}
       ]
   },
   {
@@ -150,7 +150,8 @@ var classes = [
     files: [
       {src: '1.pdf', p:'1', title: '2014-07-15-Note-20-29'},
       {src: '2.pdf', p:'1', title: '2014-07-16-Note-19-18'},
-      {src: '3.pdf', p:'1', title: '2014-07-21-Note-19-43'}
+      {src: '3.pdf', p:'1', title: '2014-07-21-Note-19-43'},
+      {src: '4.pdf', p:'2', title: 'Repaso Parcial 2'}
       ]
   },
   {
