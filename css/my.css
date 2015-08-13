@@ -1,0 +1,10 @@
+.navbar-default {
+	/*background-color: #4C5265;*/
+}
+
+@media (min-width: 768px) {
+	header .container {
+	    padding-top: 130px;
+	    padding-bottom: 100px;
+	}
+}
